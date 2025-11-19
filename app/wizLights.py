@@ -1,8 +1,12 @@
+import os
+from dotenv import load_dotenv
 import asyncio
 from pywizlight import wizlight, PilotBuilder
 
+load_dotenv()
+
 async def test(color):
-    light = wizlight("192.168.29.143")  # Your bulb IP
+    light = wizlight(os.getenv('LIGHT_IP'))
 
     match color:
         case 'GREEN':
